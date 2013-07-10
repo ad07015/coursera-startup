@@ -1,11 +1,25 @@
+var express = require("express");
+var app = express();
+app.use(express.logger());
+
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
+
+
 // reference the http module so we can create a webserver
-var http = require("http");
+// var http = require("http");
 
 // create a server
-http.createServer(function(req, res) {
-    // on every request, we'll output 'Hello world'
-    res.end("Hello world from Cloud9!");
-}).listen(process.env.PORT, process.env.IP);
+// http.createServer(function(req, res) {
+//     // on every request, we'll output 'Hello world'
+//     res.end("Hello world from Cloud9!");
+// }).listen(process.env.PORT, process.env.IP);
 
 // Note: when spawning a server on Cloud9 IDE, 
 // listen on the process.env.PORT and process.env.IP environment variables
